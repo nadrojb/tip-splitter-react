@@ -66,7 +66,7 @@ function App() {
         </h1>
       </div>
 
-      <div className="bg-white rounded-3xl p-6 mx-auto sm:w-2/3 lg:flex lg:w-7/12">
+      <div className="bg-white rounded-3xl p-6 mx-auto sm:w-2/3 lg:flex lg:w-7/12 ">
         <div className="w=10/12 mb-4 lg:w-1/2 lg:mr-2">
           <Form
             title={"Bill"}
@@ -98,7 +98,7 @@ function App() {
             />
             <input
               onChange={updateBillAmount}
-              type="text"
+              type="number"
               placeholder="CUSTOM"
               className="bg-blue-50 text-center py-2 px-2 rounded-md w-24 border-2 border-blue-50 hover:border-gray-400 mt-3 sm:w-36  lg:w-28"
             />

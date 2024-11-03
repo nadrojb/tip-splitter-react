@@ -10,7 +10,7 @@ function Form({ id, title, placeholder, handleChange }) {
       </label>
       <div className="w-full mt-1">
         <input
-          type="text"
+          type="number"
           name=""
           id="bill"
           placeholder={placeholder}
