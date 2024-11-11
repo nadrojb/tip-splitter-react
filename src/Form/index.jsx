@@ -17,6 +17,7 @@ function Form({ id, title, placeholder, handleChange }) {
           className="bg-blue-50 py-2 px-2 rounded-md w-full border-2 border-blue-50 hover:border-gray-400"
           onChange={handleChange}
         />
+        
       </div>
     </form>
   );

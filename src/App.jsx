@@ -41,6 +41,14 @@ function App() {
     }
   }
 
+  function updateCustomTipAmount(e) {
+    if (e.target.value < 0) {
+      setCustomAmount(0);
+    } else {
+      setCustomAmount(e.target.value);
+    }
+  }
+
   function updatePeopleAmount(e) {
     if (e.target.value < 1) {
       setAmountOfPeople(1);
@@ -50,10 +58,17 @@ function App() {
   }
 
   useEffect(() => {
-    const tipPer = ((billAmount / 100) * discountAmount) / amountOfPeople;
-    const total = billAmount / amountOfPeople + tipPer;
-    setTotalTipAmount(tipPer.toFixed(2));
-    setPricePerPerson(total.toFixed(2));
+    if (customAmount == "") {
+      const tipPer = ((billAmount / 100) * discountAmount) / amountOfPeople;
+      const total = billAmount / amountOfPeople + tipPer;
+      setTotalTipAmount(tipPer.toFixed(2));
+      setPricePerPerson(total.toFixed(2));
+    } else {
+      const tipPer = customAmount / amountOfPeople;
+      const total = billAmount / amountOfPeople + tipPer;
+      setTotalTipAmount(tipPer.toFixed(2));
+      setPricePerPerson(total.toFixed(2));
+    }
   }, [billAmount, discountAmount, amountOfPeople, TotalTipAmount]);
   return (
     <>
@@ -97,7 +112,7 @@ function App() {
               handlePercentageCalc={select50PercentTip}
             />
             <input
-              onChange={updateBillAmount}
+              onChange={updateCustomTipAmount}
               type="number"
               placeholder="CUSTOM"
               className="bg-blue-50 text-center py-2 px-2 rounded-md w-24 border-2 border-blue-50 hover:border-gray-400 mt-3 sm:w-36  lg:w-28"
